@@ -1,0 +1,13 @@
+[submodule "libs/imgui"]
+	path = libs/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "libs/SDL2"]
+	path = libs/SDL2
+	url = https://github.com/libsdl-org/SDL.git
+	branch = SDL2
+[submodule "libs/glm"]
+	path = libs/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "libs/assimp"]
+	path = libs/assimp
+	url = https://github.com/assimp/assimp.git
