@@ -131,10 +131,15 @@ int Camera::onEvent(SDL_Event *event,SDL_bool mouseMode){
     }
     if(event->type == SDL_MOUSEMOTION){
         //std::clog << event->motion.xrel <<  " " << event->motion.yrel <<std::endl;
-        yaw -= (event->motion.xrel)/2;
-        pitch += (event->motion.yrel)/2;
+        yaw -= (event->motion.xrel)/2.f;
+        pitch += (event->motion.yrel)/2.f;
     }
 
     return 0;
 
+}
+
+void Camera::changeSize(int width,int height){
+  this->width = width;
+  this->height = height;
 }

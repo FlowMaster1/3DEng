@@ -20,7 +20,7 @@ glm::vec3 Ambient;
 class Model 
 {
     public:
-        Model(std::string const &path);
+        Model(std::string const &path,glm::vec3 coord = glm::vec3(0.0f));
 
         void Draw(Shader &shader);	
         void Rotate(float angle, glm::vec3 coord);

@@ -50,10 +50,13 @@ public:
     std::vector<SpotLight> spot_lights;
     float bgColor[3];
 
-    Scene(){}
+    Scene(){
+        for(float i:bgColor)
+            i = 0.0f;
+    }
 
-    void loadModel(const std::string name,const std::string path){
-        models.insert(std::pair<std::string,std::shared_ptr<Model>>(name,new Model(path)));
+    void loadModel(const std::string name,const std::string path,glm::vec3 coord = glm::vec3(0.0f)){
+        models.insert(std::pair<std::string,std::shared_ptr<Model>>(name,new Model(path,coord)));
     }
 
     void Draw(){

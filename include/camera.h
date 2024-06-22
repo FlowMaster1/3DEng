@@ -22,6 +22,7 @@ public:
     void changeDrawDistant(float nearPlane, float farPlane);
     void changeFOV(float FOVdeg);
     void changeProgMode(bool mode);
+    void changeSize(int width,int height);  
 
     glm::vec3 GetPosition(){return position;}
     glm::vec3 GetDirection(){return direction;}

@@ -1,8 +1,9 @@
 #include "Render/model.h"
 
-Model::Model(std::string const &path)
+Model::Model(std::string const &path, glm::vec3 coord)
 {
     this->model_mat = glm::mat4(1.0f);
+    Move(coord);
     std::clog << "Loading model:" << path << "\n";
     UseMaterial = false;
     loadModel(path);
@@ -28,19 +29,18 @@ void Model::Draw(Shader &shader)
     shader.setMatrix4f("u_MM",model_mat);
     for(unsigned int i = 0; i < meshes.size(); i++)
         meshes[i].Draw(shader);
-    model_mat = glm::mat4(1.0);
 }  
 
 void Model::Rotate(float angle, glm::vec3 coord){
-    model_mat = glm::rotate(model_mat,glm::radians(angle),coord);
+    this->model_mat = glm::rotate(model_mat,glm::radians(angle),coord);
 }
 
 void Model::Scale(glm::vec3 size){
-    model_mat = glm::scale(model_mat,size);
+    this->model_mat = glm::scale(model_mat,size);
 }
 
 void Model::Move(glm::vec3 coord){
-    model_mat = glm::translate(model_mat,coord);
+    this->model_mat = glm::translate(model_mat,coord);
 }
 
 void Model::loadModel(std::string const &path)

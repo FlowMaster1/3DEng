@@ -14,19 +14,21 @@
 
 class Render{
 public:
+    SDL_bool mouseMode;
+
     Render();
-    Render(unsigned int width,unsigned int height,std::string nameOfWindow);
+    Render(int width,int height,std::string nameOfWindow);
     ~Render();  
     
     void RunPerFrame();
     void RunDevUI();
     void onEvent(SDL_Event *event);
-    void loadScene(Scene &scene_m);
-    void loadCamera(Camera &camera_m);
+    void loadScene(Scene *scene_m);
+    void loadCamera(Camera *camera_m);
 
     
-    unsigned int GetScreenWidth(){return screen_width;}
-    unsigned int GetScreenHeight(){return screen_height;}
+    int GetScreenWidth(){return screen_width;}
+    int GetScreenHeight(){return screen_height;}
     SDL_Window *GetWindowID(){return window;}  
     bool isRuning() { return isRun; }
 
@@ -35,12 +37,11 @@ private:
     SDL_Window *window;
     SDL_GLContext glContext;
     ImGuiIO *io;
-    Scene scene;
-    Camera camera;
-    SDL_bool mouseMode;
+    Camera *camera;
+    Scene *scene;
 
-    unsigned int screen_width;
-    unsigned int screen_height; 
+    int screen_width;
+    int screen_height; 
     std::string name;
     
     void sdl_gl_init();
